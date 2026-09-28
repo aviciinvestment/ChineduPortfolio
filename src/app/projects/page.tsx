@@ -2,78 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { Moon, Sun, ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
-
-const navItems = [
-  { name: "Profile", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Skills", path: "/skills" },
-  { name: "Certifications", path: "/certifications" },
-  { name: "Projects", path: "/projects" },
-  { name: "Contact", path: "/contact" }
-];
+import { ArrowLeft } from "lucide-react";
+import { useTheme } from "@/components/ThemeContext";
 
 export default function Projects() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    document.body.className = isDarkMode ? "bg-neutral-950 text-white" : "bg-neutral-50 text-black";
-  }, [isDarkMode]);
-
-  const currentTheme = isDarkMode ? "bg-neutral-950 text-white" : "bg-neutral-50 text-black";
+  const { isDarkMode } = useTheme();
 
   return (
-    <div className={`min-h-screen w-full flex flex-col font-sans transition-colors duration-700 ${currentTheme}`}>
-      
-      {/* Global Drafting Guides (Background) */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 bottom-0 left-5 md:left-10 w-[1px] mix-blend-difference bg-white/20" />
-        <div className="absolute top-0 bottom-0 right-5 md:right-10 w-[1px] mix-blend-difference bg-white/20" />
-        <div className="absolute top-5 md:top-10 left-0 right-0 h-[1px] mix-blend-difference bg-white/20" />
-        <div className="absolute bottom-5 md:bottom-10 left-0 right-0 h-[1px] mix-blend-difference bg-white/20" />
-      </div>
-
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full p-6 md:p-10 z-50 flex justify-between items-center mix-blend-difference text-white">
-        <Link href="/" className="text-sm font-bold tracking-widest uppercase hover:opacity-70 transition-opacity">
-          Chinedu<br/>Portfolio
-        </Link>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8 items-center text-xs tracking-widest uppercase font-medium">
-          {navItems.map((item) => (
-            <Link key={item.name} href={item.path} className="hover:opacity-70 transition-opacity">
-              {item.name}
-            </Link>
-          ))}
-          <button onClick={() => setIsDarkMode(!isDarkMode)} className="ml-4 p-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
-            {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
-          </button>
-        </div>
-
-        {/* Mobile Nav Toggle */}
-        <button className="md:hidden p-2 uppercase text-xs tracking-widest" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? "CLOSE" : "MENU"}
-        </button>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 ${isDarkMode ? 'bg-neutral-950' : 'bg-neutral-50'}`}>
-          {navItems.map((item) => (
-            <Link key={item.name} href={item.path} onClick={() => setIsMenuOpen(false)} className={`text-2xl font-light uppercase tracking-widest ${isDarkMode ? 'text-white' : 'text-black'}`}>
-              {item.name}
-            </Link>
-          ))}
-          <button onClick={() => { setIsDarkMode(!isDarkMode); setIsMenuOpen(false); }} className={`mt-8 p-4 rounded-full border ${isDarkMode ? 'border-white/20 text-white' : 'border-black/20 text-black'}`}>
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-        </div>
-      )}
-
+    <div className="w-full">
       {/* Main Content */}
       <main className="flex-1 relative z-10 px-6 md:px-10 lg:px-20 pt-32 pb-24 max-w-5xl mx-auto w-full">
         

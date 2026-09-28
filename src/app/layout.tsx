@@ -18,13 +18,23 @@ export const metadata: Metadata = {
   description: "Dynamic 3D Mechanical Design Portfolio",
 };
 
+import { ThemeProvider } from "@/components/ThemeContext";
+import Navbar from "@/components/Navbar";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${rajdhani.variable} h-full antialiased`}
     >
-      <body className={`${spaceGrotesk.className} min-h-full flex flex-col`}>{children}</body>
+      <body className={`${spaceGrotesk.className} min-h-full flex flex-col overflow-x-hidden`}>
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1 w-full relative z-10 flex flex-col">
+            {children}
+          </main>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

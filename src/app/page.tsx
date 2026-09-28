@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, type Variants } from "framer-motion";
-import { Moon, Sun, PenTool, Plane, Scan, Activity, FileText, ArrowRight } from "lucide-react";
+import { PenTool, Plane, Scan, Activity, FileText, ArrowRight } from "lucide-react";
+import { useTheme } from "@/components/ThemeContext";
 
 const skills = [
   { name: "Mechanical CAD Design", icon: PenTool, id: "cad" },
@@ -14,19 +15,9 @@ const skills = [
   { name: "Engineering Drawing", icon: FileText, id: "draw" }
 ];
 
-const navItems = [
-  { name: "Profile", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Skills", path: "/skills" },
-  { name: "Certifications", path: "/certifications" },
-  { name: "Projects", path: "/#projects" },
-  { name: "Contact", path: "/contact" }
-];
-
 export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isDarkMode } = useTheme();
   const containerRef = useRef(null);
   const skillsRef = useRef(null);
 
@@ -64,31 +55,8 @@ export default function Home() {
     })
   };
 
-  const darkThemeClasses = "bg-[#030303] text-white";
-  const lightThemeClasses = "bg-[#c0c2c9] bg-gradient-to-br from-[#d4d6dc] to-[#a3a5ac] text-[#222]";
-  const currentTheme = isDarkMode ? darkThemeClasses : lightThemeClasses;
-
-  const profileImageJsx = (
-    <div className={`relative w-[clamp(7rem,15vw,10rem)] h-[clamp(7rem,15vw,10rem)] border-b-[2px] ${isDarkMode ? 'border-white' : 'border-black'}`}>
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{ clipPath: "inset(-50% -50% 0px -50%)" }}
-      >
-        {/* Shifted down to be 'buried' below the bottom line */}
-        <div className="absolute -bottom-6 left-[5%] w-[90%] h-[125%]">
-          <Image 
-            src="/profile.png" 
-            alt="John Chinedu" 
-            fill
-            className="object-contain object-bottom scale-[1.28] origin-bottom drop-shadow-2xl"
-          />
-        </div>
-      </div>
-    </div>
-  );
-
   return (
-    <div ref={containerRef} className={`relative font-sans selection:bg-white/20 transition-colors duration-700 ${isDarkMode ? 'bg-black' : 'bg-[#c0c2c9]'}`}>
+    <div ref={containerRef} className="w-full relative">
       
       {/* Background Flowing Models */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-50 md:opacity-60 mix-blend-overlay">
@@ -116,21 +84,8 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Drafting Guides */}
-      <div className="fixed inset-y-0 left-3 md:left-5 lg:left-10 w-[1px] z-[100] pointer-events-none mix-blend-difference bg-white/30" />
-      <div className="fixed inset-y-0 right-3 md:right-5 lg:right-10 w-[1px] z-[100] pointer-events-none mix-blend-difference bg-white/30" />
-
-      
-      {/* Floating Toggle Button */}
-      <button 
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'}`}
-      >
-        {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-      </button>
-
       {/* SECTION 1 */}
-      <section className={`relative min-h-screen w-full overflow-hidden flex flex-col transition-colors duration-700 ${currentTheme}`}>
+      <section className="relative min-h-screen w-full overflow-hidden flex flex-col">
         {/* Background Huge Text Wrapper */}
         <div 
           className="absolute top-1/2 left-1/2 w-full z-0 pointer-events-none select-none mix-blend-plus-lighter"
@@ -149,107 +104,8 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Navbar */}
-        <nav className="relative z-10 flex justify-between items-start md:items-center px-6 md:px-10 lg:px-20 py-6 md:py-10">
-          <div className="absolute bottom-0 left-3 md:left-5 lg:left-10 right-3 md:right-5 lg:right-10 h-[1px] mix-blend-difference bg-white/30 pointer-events-none" />
-          
-          <div className={`flex flex-col gap-2 font-bold text-sm tracking-widest uppercase cursor-pointer group ${isDarkMode ? 'text-white' : 'text-black'}`}>
-            <Link href="/">
-              <span>JOHN CHINEDU<span className="md:hidden"><br/></span><span className="hidden md:inline"> </span>SYSTEMS</span>
-            </Link>
-          </div>
-
-          <ul className="hidden md:flex gap-12 text-xs font-semibold text-neutral-400 uppercase tracking-widest">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Link href={item.path} className={`transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-black'}`}>{item.name}</Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            className="md:hidden flex flex-col justify-center gap-[7px] p-2 -mr-2 cursor-pointer z-50"
-          >
-            <span className={`block h-[2px] w-8 transition-all duration-300 ${isDarkMode ? 'bg-white' : 'bg-black'}`} />
-            <span className={`block h-[2px] w-8 transition-all duration-300 ${isDarkMode ? 'bg-white' : 'bg-black'}`} />
-            <span className={`block h-[2px] w-8 transition-all duration-300 ${isDarkMode ? 'bg-white' : 'bg-black'}`} />
-          </button>
-        </nav>
-
-        {/* Mobile Slide-In Side Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <>
-              <motion.div
-                key="backdrop"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setIsMenuOpen(false)}
-                className="md:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-[2px]"
-              />
-              <motion.nav
-                key="drawer"
-                id="mobile-menu"
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ duration: 0.4, ease: [0.165, 0.84, 0.44, 1] }}
-                className={`md:hidden fixed top-0 right-0 h-full w-[80%] max-w-xs z-50 flex flex-col p-8 shadow-2xl ${isDarkMode ? 'bg-[#0a0a0a] text-white' : 'bg-[#d4d6dc] text-[#222]'}`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-widest">Menu</span>
-                  <button
-                    type="button"
-                    onClick={() => setIsMenuOpen(false)}
-                    aria-label="Close menu"
-                    className={`p-2 -mr-2 cursor-pointer text-xl leading-none transition-opacity hover:opacity-60 ${isDarkMode ? 'text-white' : 'text-black'}`}
-                  >
-                    &#10005;
-                  </button>
-                </div>
-
-                <div className={`h-[1px] w-full my-6 ${isDarkMode ? 'bg-white/15' : 'bg-black/15'}`} />
-
-                <ul className="flex flex-col gap-2">
-                  {navItems.map((item, i) => (
-                    <motion.li
-                      key={item.name}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
-                    >
-                      <Link
-                        href={item.path}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`block py-3 text-2xl font-light uppercase tracking-tight transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-[#555] hover:text-black'}`}
-                      >
-                        {item.name}
-                      </Link>
-                    </motion.li>
-                  ))}
-                </ul>
-
-                <div className="mt-auto">
-                  <div className={`h-[1px] w-full mb-4 ${isDarkMode ? 'bg-white/15' : 'bg-black/15'}`} />
-                  <p className={`text-[0.6rem] uppercase tracking-[2px] leading-relaxed font-bold ${isDarkMode ? 'text-neutral-500' : 'text-[#666]'}`}>
-                    JOHN CHINEDU<br/>SYSTEMS
-                  </p>
-                </div>
-              </motion.nav>
-            </>
-          )}
-        </AnimatePresence>
-
         {/* Main Content */}
-        <div className="relative flex-1 flex flex-col justify-start pt-10 md:pt-0 md:justify-center px-6 md:px-10 lg:px-20 z-10 w-full pb-20 md:pb-0">
+        <div className="relative flex-1 flex flex-col justify-start pt-10 md:pt-20 lg:pt-32 px-6 md:px-10 lg:px-20 z-10 w-full pb-20 md:pb-0">
           
           {/* Floating Central Image (Now Centered and Bigger) */}
           <div 
@@ -304,12 +160,12 @@ export default function Home() {
             {/* Bottom Row / Stack */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full mt-4">
               
-              {/* Profile Image & Name Block */}
-              <motion.div variants={fadeUpVariants} className="flex flex-col items-center gap-4">
-                {profileImageJsx}
-                <span className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-300' : 'text-neutral-600'}`}>
+              {/* Name Block */}
+              <motion.div variants={fadeUpVariants} className="flex flex-col items-center md:items-start gap-1">
+                <span className={`text-xl md:text-2xl font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-300' : 'text-neutral-600'}`}>
                   John Chinedu
                 </span>
+                <div className={`h-[2px] w-12 mt-2 ${isDarkMode ? 'bg-white/30' : 'bg-black/30'}`} />
               </motion.div>
 
               {/* Bio & Button Block */}
@@ -336,7 +192,7 @@ export default function Home() {
       </div>
 
       {/* SKILLS PLAYGROUND SECTION */}
-      <section id="skills" className={`relative min-h-[70vh] w-full overflow-hidden flex flex-col z-20 transition-colors duration-700 py-20 ${currentTheme}`}>
+      <section id="skills" className="relative min-h-[70vh] w-full overflow-hidden flex flex-col z-20 transition-colors duration-700 py-20">
         <div className="absolute inset-0 z-0 pointer-events-none flex flex-col items-center justify-center opacity-[0.03]">
           <h2 className="text-[clamp(4rem,15vw,12rem)] font-black uppercase tracking-tighter">SKILLS</h2>
         </div>
@@ -358,11 +214,11 @@ export default function Home() {
                   dragElastic={0.2}
                   whileDrag={{ scale: 1.1, zIndex: 50, cursor: "grabbing" }}
                   whileHover={{ scale: 1.05 }}
-                  className={`relative flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-6 w-28 md:w-40 aspect-square rounded-2xl cursor-grab backdrop-blur-md border shadow-xl transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-white/20 hover:bg-white/10 text-white' : 'bg-black/5 border-black/20 hover:bg-black/10 text-black'}`}
+                  className={`relative flex flex-col items-center justify-center gap-2 md:gap-3 p-3 md:p-6 w-32 md:w-40 aspect-square rounded-2xl cursor-grab backdrop-blur-md border shadow-xl transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-white/20 hover:bg-white/10 text-white' : 'bg-black/5 border-black/20 hover:bg-black/10 text-black'}`}
                   style={{ zIndex: index }}
                 >
                   <Icon className="w-8 h-8 md:w-10 md:h-10 pointer-events-none shrink-0" strokeWidth={1.5} />
-                  <span className="text-[9px] md:text-xs font-bold text-center leading-tight uppercase tracking-wider pointer-events-none w-full px-1 break-words">{skill.name}</span>
+                  <span className="text-[10px] md:text-xs font-bold text-center leading-tight uppercase tracking-wider pointer-events-none w-full px-1 break-words">{skill.name}</span>
                 </motion.div>
               );
             })}
@@ -376,7 +232,7 @@ export default function Home() {
       </div>
 
       {/* PROJECTS SECTION */}
-      <section id="projects" className={`relative min-h-screen w-full flex flex-col z-20 transition-colors duration-700 py-24 md:py-32 ${currentTheme}`}>
+      <section id="projects" className="relative min-h-screen w-full flex flex-col z-20 transition-colors duration-700 py-24 md:py-32">
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 lg:px-20 w-full flex flex-col gap-16 z-10">
           
           {/* Section Header */}
