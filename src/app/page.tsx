@@ -105,28 +105,28 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="relative flex-1 flex flex-col lg:flex-row items-center justify-center pt-10 md:pt-20 lg:pt-32 px-6 md:px-10 lg:px-20 z-10 w-full max-w-6xl mx-auto pb-20 lg:pb-0 gap-8 lg:gap-12">
+        <div className="relative flex-1 flex flex-col lg:flex-row items-center justify-center pt-4 md:pt-20 lg:pt-32 px-6 md:px-10 lg:px-20 z-10 w-full max-w-6xl mx-auto pb-20 lg:pb-0 gap-6 md:gap-8 lg:gap-12">
           
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={staggerVariants}
-            className="relative z-20 w-full lg:w-auto flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-8 mt-12 md:mt-0"
+            className="relative z-20 w-full lg:w-auto flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 mt-4 md:mt-0"
           >
             {/* Main Headline */}
             <div className="flex flex-col items-center lg:items-start w-full z-10">
-              <h1 className="text-[clamp(3rem,6vw,6rem)] font-normal leading-[1.05] tracking-tight w-full text-accent whitespace-nowrap">
+              <h1 className="text-[clamp(3.5rem,7vw,7rem)] font-light leading-[0.95] tracking-tighter w-full text-accent whitespace-nowrap drop-shadow-md">
                 {Array.from("DYNAMIC 3D").map((char, i) => (
                   <motion.span key={`d-${i}`} custom={i} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                     {char === ' ' ? '\u00A0' : char}
                   </motion.span>
                 ))}<br/>
                 {Array.from("MECHANICAL").map((char, i) => (
-                  <motion.span key={`m-${i}`} custom={i + 10} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
+                  <motion.span key={`m-${i}`} custom={i + 10} variants={spellVariants} initial="hidden" animate="visible" className="inline-block font-medium">
                     {char === ' ' ? '\u00A0' : char}
                   </motion.span>
                 ))}<br/>
-                <span className="font-bold not-italic text-accent drop-shadow-[0_0_15px_rgba(188,204,220,0.3)]">
+                <span className="font-black not-italic text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-secondary drop-shadow-[0_0_20px_rgba(188,204,220,0.4)]">
                   {Array.from("DESIGN").map((char, i) => (
                     <motion.span key={`des-${i}`} custom={i + 20} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                       {char === ' ' ? '\u00A0' : char}
@@ -137,23 +137,23 @@ export default function Home() {
             </div>
 
             {/* Bottom Row / Stack */}
-            <div className="flex flex-col items-center lg:items-start gap-8 md:gap-10 w-full mt-4">
+            <div className="flex flex-col items-center lg:items-start gap-6 md:gap-8 w-full mt-2">
               
               {/* Name Block */}
               <motion.div variants={fadeUpVariants} className="flex flex-col items-center lg:items-start gap-1">
-                <span className="text-xl md:text-2xl font-bold uppercase tracking-[0.2em] text-accent/80">
+                <span className="text-xl md:text-2xl font-black uppercase tracking-[0.3em] text-accent">
                   John Chinedu
                 </span>
               </motion.div>
 
               {/* Bio & Button Block */}
               <motion.div variants={fadeUpVariants} className="flex flex-col items-center lg:items-start gap-8 max-w-[450px]">
-                <p className="text-[clamp(0.7rem,1.5vw,0.9rem)] uppercase tracking-[2px] leading-[1.8] text-center lg:text-left text-accent/70">
+                <p className="text-[clamp(0.75rem,1.5vw,0.9rem)] uppercase tracking-[3px] leading-[1.8] font-medium text-center lg:text-left text-accent/80">
                   CRAFTING HIGH-FIDELITY<br/>
                   MECHANISMS AND FUNCTIONAL<br/>
                   PROTOTYPES
                 </p>
-                <Link href="/projects" className="group relative flex items-center justify-center gap-3 px-8 py-4 border border-accent/40 rounded-full text-[clamp(0.6rem,1.5vw,0.85rem)] uppercase tracking-[1.5px] overflow-hidden transition-all duration-500 cursor-pointer backdrop-blur-sm text-accent hover:text-primary hover:border-accent bg-secondary/10 hover:shadow-[0_0_30px_rgba(188,204,220,0.3)]">
+                <Link href="/projects" className="group relative flex items-center justify-center gap-3 px-10 py-5 border-2 border-accent/40 rounded-full text-[clamp(0.65rem,1.5vw,0.9rem)] font-bold uppercase tracking-[2px] overflow-hidden transition-all duration-500 cursor-pointer backdrop-blur-md text-accent hover:text-primary hover:border-accent bg-secondary/20 hover:shadow-[0_0_40px_rgba(188,204,220,0.4)] hover:scale-105 active:scale-95">
                   <span className="absolute inset-0 w-full h-full origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-x-100 -z-10 bg-accent" />
                   Explore Designs
                 </Link>
@@ -166,21 +166,21 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
-            className="relative w-full lg:w-auto flex justify-center lg:justify-start z-10 shrink-0"
-            style={{ transform: `translate(calc(${mousePos.x * 10}px), calc(${mousePos.y * 10}px))` }}
+            className="relative w-full lg:w-auto flex justify-center lg:justify-start z-10 shrink-0 mt-4 lg:mt-0"
+            style={{ transform: `translate(calc(${mousePos.x * 15}px), calc(${mousePos.y * 15}px))` }}
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[550px] rounded-[3rem] overflow-hidden border-4 border-secondary/50 shadow-[0_0_60px_rgba(72,101,129,0.5)] bg-secondary/20">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[480px] lg:h-[580px] rounded-[3rem] overflow-hidden border-[6px] border-secondary/40 shadow-[0_0_80px_rgba(72,101,129,0.6)] bg-secondary/10 hover:shadow-[0_0_100px_rgba(188,204,220,0.5)] transition-shadow duration-700 group">
               <Image 
                 src="/profile.png" 
                 alt="John Chinedu Profile" 
                 fill
-                sizes="(max-width: 768px) 256px, (max-width: 1024px) 320px, 450px"
+                sizes="(max-width: 768px) 288px, (max-width: 1024px) 384px, 480px"
                 quality={100}
                 unoptimized={true}
-                className="object-cover object-top"
+                className="object-cover object-top transition-transform duration-1000 group-hover:scale-105"
                 priority
               />
-              <div className="absolute inset-0 border-[2px] border-accent/20 rounded-[3rem] pointer-events-none" />
+              <div className="absolute inset-0 border-[2px] border-accent/30 rounded-[3rem] pointer-events-none mix-blend-overlay" />
             </div>
           </motion.div>
 
