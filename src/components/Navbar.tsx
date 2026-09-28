@@ -39,8 +39,24 @@ export default function Navbar() {
       <div className="fixed inset-y-0 left-3 md:left-5 lg:left-10 w-[1px] z-[100] pointer-events-none mix-blend-difference bg-white/30" />
       <div className="fixed inset-y-0 right-3 md:right-5 lg:right-10 w-[1px] z-[100] pointer-events-none mix-blend-difference bg-white/30" />
 
-      {/* Theme toggle removed for monochromatic rebranding */}
-
+      {/* Theme Toggle */}
+      <button
+        onClick={toggleTheme}
+        className="fixed bottom-6 right-6 md:right-10 lg:right-10 z-[100] p-4 md:p-5 rounded-full border border-secondary/50 backdrop-blur-sm bg-primary/80 text-accent hover:bg-secondary/20 transition-all duration-300 shadow-lg"
+        aria-label="Toggle Theme"
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={isDarkMode ? "dark" : "light"}
+            initial={{ y: -20, opacity: 0, rotate: -90 }}
+            animate={{ y: 0, opacity: 1, rotate: 0 }}
+            exit={{ y: 20, opacity: 0, rotate: 90 }}
+            transition={{ duration: 0.3 }}
+          >
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </motion.div>
+        </AnimatePresence>
+      </button>
       {/* Desktop & Mobile Top Navbar */}
       <nav className="relative z-[90] flex justify-between items-start md:items-center px-6 md:px-10 lg:px-20 py-6 md:py-10">
         <div className="absolute bottom-0 left-3 md:left-5 lg:left-10 right-3 md:right-5 lg:right-10 h-[1px] mix-blend-difference bg-white/30 pointer-events-none" />

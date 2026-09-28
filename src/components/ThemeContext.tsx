@@ -32,20 +32,14 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  // We add a wrapper div that automatically applies the correct background theme.
-  // Using the new monochromatic cool blue palette for rebranding
-  const darkThemeClasses = "bg-primary text-accent";
-  const lightThemeClasses = "bg-primary text-accent";
-  const currentTheme = isDarkMode ? darkThemeClasses : lightThemeClasses;
-
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
-      <div className={`relative min-h-screen font-sans selection:bg-white/20 ${mounted ? 'transition-colors duration-700' : ''} ${currentTheme}`}>
+      <div className={`relative min-h-screen font-sans selection:bg-white/20 ${mounted ? 'transition-colors duration-700' : ''} bg-primary text-accent ${isDarkMode ? 'dark' : ''}`}>
         {/* Faint Grid Lines */}
         <div 
-          className="fixed inset-0 pointer-events-none z-0" 
+          className="fixed inset-0 pointer-events-none z-0 transition-colors duration-700" 
           style={{ 
-            backgroundImage: `linear-gradient(to right, rgba(188,204,220,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(188,204,220,0.05) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, ${isDarkMode ? 'rgba(188,204,220,0.05)' : 'rgba(16,42,67,0.05)'} 1px, transparent 1px), linear-gradient(to bottom, ${isDarkMode ? 'rgba(188,204,220,0.05)' : 'rgba(16,42,67,0.05)'} 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }} 
         />

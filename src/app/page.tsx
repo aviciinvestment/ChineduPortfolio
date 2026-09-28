@@ -105,17 +105,17 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="relative flex-1 flex flex-col lg:flex-row items-center justify-between pt-10 md:pt-20 lg:pt-32 px-6 md:px-10 lg:px-20 z-10 w-full pb-20 lg:pb-0 gap-10">
+        <div className="relative flex-1 flex flex-col lg:flex-row items-center justify-center pt-10 md:pt-20 lg:pt-32 px-6 md:px-10 lg:px-20 z-10 w-full max-w-6xl mx-auto pb-20 lg:pb-0 gap-8 lg:gap-12">
           
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={staggerVariants}
-            className="relative z-20 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-8 mt-12 md:mt-0"
+            className="relative z-20 w-full lg:w-auto flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-8 mt-12 md:mt-0"
           >
             {/* Main Headline */}
             <div className="flex flex-col items-center lg:items-start w-full z-10">
-              <h1 className="text-[clamp(3rem,8vw,7rem)] font-normal leading-[1.05] tracking-tight w-full text-accent">
+              <h1 className="text-[clamp(3rem,6vw,6rem)] font-normal leading-[1.05] tracking-tight w-full text-accent whitespace-nowrap">
                 {Array.from("DYNAMIC 3D").map((char, i) => (
                   <motion.span key={`d-${i}`} custom={i} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                     {char === ' ' ? '\u00A0' : char}
@@ -166,7 +166,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
-            className="relative w-full lg:w-1/2 flex justify-center lg:justify-end z-10"
+            className="relative w-full lg:w-auto flex justify-center lg:justify-start z-10 shrink-0"
             style={{ transform: `translate(calc(${mousePos.x * 10}px), calc(${mousePos.y * 10}px))` }}
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[550px] rounded-[3rem] overflow-hidden border-4 border-secondary/50 shadow-[0_0_60px_rgba(72,101,129,0.5)] bg-secondary/20">
