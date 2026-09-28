@@ -18,7 +18,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`flex-1 flex flex-col items-center lg:items-start max-w-md mx-auto lg:mx-0 w-full rounded-3xl border p-8 md:p-12 shadow-2xl backdrop-blur-sm ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}
+          className={`flex-1 flex flex-col items-center lg:items-start max-w-[320px] md:max-w-md mx-auto lg:mx-0 w-full rounded-3xl border p-6 md:p-12 shadow-2xl backdrop-blur-sm ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}
         >
           {/* Profile Image with frame */}
           <div className="relative w-40 h-40 md:w-56 md:h-56 mb-8 group">
@@ -68,16 +68,16 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`group flex items-center gap-6 p-6 rounded-2xl border transition-all duration-300 ${isDarkMode ? 'border-white/10 hover:border-white/30 hover:bg-white/5' : 'border-black/10 hover:border-black/30 hover:bg-black/5'}`}
+              className={`group flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-2xl border transition-all duration-300 ${isDarkMode ? 'border-white/10 hover:border-white/30 hover:bg-white/5' : 'border-black/10 hover:border-black/30 hover:bg-black/5'}`}
             >
-              <div className={`p-4 rounded-full ${isDarkMode ? 'bg-white/10 text-white' : 'bg-black/10 text-black'}`}>
-                <Mail strokeWidth={1.5} className="w-6 h-6" />
+              <div className={`p-3 md:p-4 rounded-full shrink-0 ${isDarkMode ? 'bg-white/10 text-white' : 'bg-black/10 text-black'}`}>
+                <Mail strokeWidth={1.5} className="w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <div className="flex flex-col flex-1">
+              <div className="flex flex-col flex-1 min-w-0">
                 <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>Email</span>
-                <span className="text-base md:text-lg tracking-wide font-medium truncate">sosochukwunedum@gmail.com</span>
+                <span className="text-sm sm:text-base md:text-lg tracking-wide font-medium truncate">sosochukwunedum@gmail.com</span>
               </div>
-              <ArrowUpRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
+              <ArrowUpRight className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
             </motion.a>
 
             {/* LinkedIn */}
@@ -88,9 +88,9 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className={`group flex items-center gap-6 p-6 rounded-2xl border transition-all duration-300 ${isDarkMode ? 'border-white/10 hover:border-white/30 hover:bg-white/5' : 'border-black/10 hover:border-black/30 hover:bg-black/5'}`}
+              className={`group flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-2xl border transition-all duration-300 ${isDarkMode ? 'border-white/10 hover:border-white/30 hover:bg-white/5' : 'border-black/10 hover:border-black/30 hover:bg-black/5'}`}
             >
-              <div className={`p-4 rounded-full ${isDarkMode ? 'bg-white/10 text-white' : 'bg-black/10 text-black'}`}>
+              <div className={`p-3 md:p-4 rounded-full shrink-0 ${isDarkMode ? 'bg-white/10 text-white' : 'bg-black/10 text-black'}`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -101,18 +101,18 @@ export default function ContactPage() {
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="w-6 h-6"
+                  className="w-5 h-5 md:w-6 md:h-6"
                 >
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                   <rect width="4" height="12" x="2" y="9" />
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </div>
-              <div className="flex flex-col flex-1">
+              <div className="flex flex-col flex-1 min-w-0">
                 <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>LinkedIn</span>
-                <span className="text-base md:text-lg tracking-wide font-medium">Chinedu John Ezenkwu</span>
+                <span className="text-sm sm:text-base md:text-lg tracking-wide font-medium truncate">Chinedu John Ezenkwu</span>
               </div>
-              <ArrowUpRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
+              <ArrowUpRight className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
             </motion.a>
 
             {/* WhatsApp */}
@@ -123,16 +123,16 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className={`group flex items-center gap-6 p-6 rounded-2xl border transition-all duration-300 ${isDarkMode ? 'border-white/10 hover:border-white/30 hover:bg-white/5' : 'border-black/10 hover:border-black/30 hover:bg-black/5'}`}
+              className={`group flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-2xl border transition-all duration-300 ${isDarkMode ? 'border-white/10 hover:border-white/30 hover:bg-white/5' : 'border-black/10 hover:border-black/30 hover:bg-black/5'}`}
             >
-              <div className={`p-4 rounded-full ${isDarkMode ? 'bg-white/10 text-white' : 'bg-black/10 text-black'}`}>
-                <Phone strokeWidth={1.5} className="w-6 h-6" />
+              <div className={`p-3 md:p-4 rounded-full shrink-0 ${isDarkMode ? 'bg-white/10 text-white' : 'bg-black/10 text-black'}`}>
+                <Phone strokeWidth={1.5} className="w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <div className="flex flex-col flex-1">
+              <div className="flex flex-col flex-1 min-w-0">
                 <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>WhatsApp</span>
-                <span className="text-base md:text-lg tracking-wide font-medium">+234 916 615 9310</span>
+                <span className="text-sm sm:text-base md:text-lg tracking-wide font-medium truncate">+234 916 615 9310</span>
               </div>
-              <ArrowUpRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
+              <ArrowUpRight className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
             </motion.a>
 
           </div>
