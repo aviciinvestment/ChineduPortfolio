@@ -105,38 +105,17 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="relative flex-1 flex flex-col justify-start pt-10 md:pt-20 lg:pt-32 px-6 md:px-10 lg:px-20 z-10 w-full pb-20 md:pb-0">
+        <div className="relative flex-1 flex flex-col lg:flex-row items-center justify-between pt-10 md:pt-20 lg:pt-32 px-6 md:px-10 lg:px-20 z-10 w-full pb-20 lg:pb-0 gap-10">
           
-          {/* Floating Central Image (Now Centered and Bigger) */}
-          <div 
-            className="absolute top-[65%] md:top-1/2 left-1/2 w-[160vw] md:w-[90vw] lg:w-[85vw] max-w-[1600px] aspect-video flex justify-center items-center -z-10 pointer-events-none"
-            style={{ transform: `translate(calc(-50% + ${mousePos.x * 40}px), calc(-50% + ${mousePos.y * 40}px))` }}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative w-full h-full"
-            >
-              <Image 
-                src="/engine2.png" 
-                alt="Engine Block" 
-                fill
-                className={`object-contain contrast-125 grayscale-[0.1] transition-opacity duration-700 ${isDarkMode ? 'opacity-30' : 'opacity-20 mix-blend-multiply'}`}
-                priority
-              />
-            </motion.div>
-          </div>
-
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={staggerVariants}
-            className="relative z-20 w-full flex flex-col items-center md:items-start text-center md:text-left gap-8 mt-12 md:mt-0"
+            className="relative z-20 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-8 mt-12 md:mt-0"
           >
             {/* Main Headline */}
-            <div className="flex flex-col items-center md:items-start w-full z-10">
-              <h1 className="text-[clamp(3rem,8vw,7rem)] font-normal leading-[1.05] tracking-tight w-full">
+            <div className="flex flex-col items-center lg:items-start w-full z-10">
+              <h1 className="text-[clamp(3rem,8vw,7rem)] font-normal leading-[1.05] tracking-tight w-full text-accent">
                 {Array.from("DYNAMIC 3D").map((char, i) => (
                   <motion.span key={`d-${i}`} custom={i} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                     {char === ' ' ? '\u00A0' : char}
@@ -147,7 +126,7 @@ export default function Home() {
                     {char === ' ' ? '\u00A0' : char}
                   </motion.span>
                 ))}<br/>
-                <span className={`font-bold not-italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                <span className="font-bold not-italic text-accent drop-shadow-[0_0_15px_rgba(188,204,220,0.3)]">
                   {Array.from("DESIGN").map((char, i) => (
                     <motion.span key={`des-${i}`} custom={i + 20} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                       {char === ' ' ? '\u00A0' : char}
@@ -158,30 +137,53 @@ export default function Home() {
             </div>
 
             {/* Bottom Row / Stack */}
-            <div className="flex flex-col items-center md:items-start gap-8 md:gap-10 w-full mt-4">
+            <div className="flex flex-col items-center lg:items-start gap-8 md:gap-10 w-full mt-4">
               
               {/* Name Block */}
-              <motion.div variants={fadeUpVariants} className="flex flex-col items-center md:items-start gap-1">
-                <span className={`text-xl md:text-2xl font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-300' : 'text-neutral-600'}`}>
+              <motion.div variants={fadeUpVariants} className="flex flex-col items-center lg:items-start gap-1">
+                <span className="text-xl md:text-2xl font-bold uppercase tracking-[0.2em] text-accent/80">
                   John Chinedu
                 </span>
               </motion.div>
 
               {/* Bio & Button Block */}
-              <motion.div variants={fadeUpVariants} className="flex flex-col items-center md:items-start gap-8 max-w-[450px]">
-                <p className={`text-[clamp(0.7rem,1.5vw,0.9rem)] uppercase tracking-[2px] leading-[1.8] text-center md:text-left ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+              <motion.div variants={fadeUpVariants} className="flex flex-col items-center lg:items-start gap-8 max-w-[450px]">
+                <p className="text-[clamp(0.7rem,1.5vw,0.9rem)] uppercase tracking-[2px] leading-[1.8] text-center lg:text-left text-accent/70">
                   CRAFTING HIGH-FIDELITY<br/>
                   MECHANISMS AND FUNCTIONAL<br/>
                   PROTOTYPES
                 </p>
-                <Link href="/projects" className={`group relative flex items-center justify-center gap-3 px-8 py-4 border rounded-full text-[clamp(0.6rem,1.5vw,0.85rem)] uppercase tracking-[1.5px] overflow-hidden transition-all duration-500 cursor-pointer backdrop-blur-sm ${isDarkMode ? 'border-white/30 text-white hover:text-black hover:border-white bg-black/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]' : 'border-black/30 text-black hover:text-white hover:border-black bg-white/20 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]'}`}>
-                  <span className={`absolute inset-0 w-full h-full origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-x-100 -z-10 ${isDarkMode ? 'bg-white' : 'bg-black'}`} />
+                <Link href="/projects" className="group relative flex items-center justify-center gap-3 px-8 py-4 border border-accent/40 rounded-full text-[clamp(0.6rem,1.5vw,0.85rem)] uppercase tracking-[1.5px] overflow-hidden transition-all duration-500 cursor-pointer backdrop-blur-sm text-accent hover:text-primary hover:border-accent bg-secondary/10 hover:shadow-[0_0_30px_rgba(188,204,220,0.3)]">
+                  <span className="absolute inset-0 w-full h-full origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-x-100 -z-10 bg-accent" />
                   Explore Designs
                 </Link>
               </motion.div>
 
             </div>
           </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
+            className="relative w-full lg:w-1/2 flex justify-center lg:justify-end z-10"
+            style={{ transform: `translate(calc(${mousePos.x * 10}px), calc(${mousePos.y * 10}px))` }}
+          >
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[550px] rounded-[3rem] overflow-hidden border-4 border-secondary/50 shadow-[0_0_60px_rgba(72,101,129,0.5)] bg-secondary/20">
+              <Image 
+                src="/profile.png" 
+                alt="John Chinedu Profile" 
+                fill
+                sizes="(max-width: 768px) 256px, (max-width: 1024px) 320px, 450px"
+                quality={100}
+                unoptimized={true}
+                className="object-cover object-top"
+                priority
+              />
+              <div className="absolute inset-0 border-[2px] border-accent/20 rounded-[3rem] pointer-events-none" />
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
@@ -198,11 +200,11 @@ export default function Home() {
         
         <div className="relative flex-1 flex flex-col items-center justify-center px-6 md:px-20 z-10 w-full gap-8">
           <div className="flex flex-col items-center text-center gap-2">
-            <span className={`text-xs font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>03 // EXPERTISE</span>
-            <p className={`text-sm uppercase tracking-widest ${isDarkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>Drag and throw to explore</p>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/60">03 // EXPERTISE</span>
+            <p className="text-sm uppercase tracking-widest text-accent/70">Drag and throw to explore</p>
           </div>
 
-          <div ref={skillsRef} className={`relative w-full max-w-5xl h-[60vh] md:h-[50vh] min-h-[400px] border border-dashed rounded-3xl flex flex-wrap gap-3 md:gap-8 items-center justify-center p-4 md:p-8 z-10 overflow-hidden ${isDarkMode ? 'border-white/20' : 'border-black/20'}`}>
+          <div ref={skillsRef} className="relative w-full max-w-5xl h-[60vh] md:h-[50vh] min-h-[400px] border border-dashed rounded-3xl flex flex-wrap gap-3 md:gap-8 items-center justify-center p-4 md:p-8 z-10 overflow-hidden border-secondary/50">
             {skills.map((skill, index) => {
               const Icon = skill.icon;
               return (
@@ -213,7 +215,7 @@ export default function Home() {
                   dragElastic={0.2}
                   whileDrag={{ scale: 1.1, zIndex: 50, cursor: "grabbing" }}
                   whileHover={{ scale: 1.05 }}
-                  className={`relative flex flex-col items-center justify-center gap-2 md:gap-3 p-3 md:p-6 w-32 md:w-40 aspect-square rounded-2xl cursor-grab backdrop-blur-md border shadow-xl transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-white/20 hover:bg-white/10 text-white' : 'bg-black/5 border-black/20 hover:bg-black/10 text-black'}`}
+                  className="relative flex flex-col items-center justify-center gap-2 md:gap-3 p-3 md:p-6 w-32 md:w-40 aspect-square rounded-2xl cursor-grab backdrop-blur-md border shadow-[0_0_20px_rgba(72,101,129,0.2)] transition-colors duration-300 bg-secondary/20 border-secondary/40 hover:bg-secondary/40 text-accent"
                   style={{ zIndex: index }}
                 >
                   <Icon className="w-8 h-8 md:w-10 md:h-10 pointer-events-none shrink-0" strokeWidth={1.5} />
@@ -236,9 +238,9 @@ export default function Home() {
           
           {/* Section Header */}
           <div className="flex flex-col gap-2">
-            <span className={`text-xs font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>04 // FEATURED WORK</span>
-            <h2 className="text-4xl md:text-6xl font-normal tracking-tight uppercase">Projects</h2>
-            <div className={`h-[1px] w-24 mt-4 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`} />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/60">04 // FEATURED WORK</span>
+            <h2 className="text-4xl md:text-6xl font-normal tracking-tight uppercase text-accent">Projects</h2>
+            <div className="h-[1px] w-24 mt-4 bg-secondary/50" />
           </div>
 
           {/* Projects Grid */}
@@ -249,9 +251,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className={`flex flex-col gap-6 rounded-3xl overflow-hidden border ${isDarkMode ? 'border-white/10 bg-white/5 hover:bg-white/10' : 'border-black/10 bg-black/5 hover:bg-black/10'} p-6 transition-all duration-300`}
+                className="flex flex-col gap-6 rounded-3xl overflow-hidden border border-secondary/40 bg-secondary/10 hover:bg-secondary/20 p-6 transition-all duration-300"
               >
-                <div className={`w-full aspect-[4/3] relative rounded-2xl overflow-hidden ${isDarkMode ? 'bg-white/50' : 'bg-black/10'}`}>
+                <div className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden bg-accent/10">
                   <Image 
                     src="/v12-engine-new.jpg" 
                     alt="V12 Car Engine CAD Model" 
@@ -260,11 +262,11 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-2xl font-semibold uppercase tracking-tight">V12 CAR ENGINE</h3>
-                  <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                  <h3 className="text-2xl font-semibold uppercase tracking-tight text-accent">V12 CAR ENGINE</h3>
+                  <p className="text-sm leading-relaxed text-accent/80">
                     A detailed 3D CAD model of a V12 internal combustion engine demonstrating advanced mechanical design, complex assembly modelling, and precise component interfacing.
                   </p>
-                  <div className={`text-xs font-bold uppercase tracking-wider mt-4 flex items-center gap-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                  <div className="text-xs font-bold uppercase tracking-wider mt-4 flex items-center gap-2 text-accent">
                     View Project <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                   </div>
                 </div>

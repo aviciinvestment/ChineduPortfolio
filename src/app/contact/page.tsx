@@ -22,7 +22,7 @@ export default function ContactPage() {
         >
           {/* Profile Image with frame */}
           <div className="relative w-40 h-40 md:w-56 md:h-56 mb-8 group">
-            <div className={`absolute inset-0 rounded-full border-2 border-dashed animate-[spin_20s_linear_infinite] ${isDarkMode ? 'border-white/30' : 'border-black/30'}`} />
+            <div className={`absolute inset-0 rounded-full border-2 border-dashed animate-[spin_20s_linear_infinite] border-accent/50`} />
             <div className={`absolute inset-2 rounded-full overflow-hidden border-4 ${isDarkMode ? 'border-[#0a0a0a] bg-white/5' : 'border-[#e5e7eb] bg-black/5'}`}>
               <Image 
                 src="/profile.png" 
@@ -38,9 +38,9 @@ export default function ContactPage() {
             <span className="font-bold">Ezenkwu</span>
           </h1>
           
-          <div className={`h-[1px] w-24 my-6 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`} />
+          <div className={`h-[1px] w-24 my-6 bg-secondary/50`} />
           
-          <p className={`text-sm uppercase tracking-[2px] leading-relaxed text-center lg:text-left ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+          <p className={`text-sm uppercase tracking-[2px] leading-relaxed text-center lg:text-left text-accent/80`}>
             Aerospace & Mechanical<br/>CAD Design Engineer
           </p>
         </motion.div>
@@ -53,9 +53,9 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="flex flex-col gap-4"
           >
-            <span className={`text-xs font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>06 // GET IN TOUCH</span>
+            <span className={`text-xs font-bold uppercase tracking-[0.2em] text-accent/60`}>06 // GET IN TOUCH</span>
             <h2 className="text-4xl md:text-6xl font-normal tracking-tight uppercase">Contact</h2>
-            <p className={`text-sm md:text-base leading-relaxed max-w-lg mt-2 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+            <p className={`text-sm md:text-base leading-relaxed max-w-lg mt-2 text-accent/80`}>
               Available for full-time opportunities, freelance engineering projects, or technical consulting. Let's discuss how we can build high-fidelity solutions together.
             </p>
           </motion.div>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                 <Mail strokeWidth={1.5} className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div className="flex flex-col flex-1 min-w-0">
-                <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>Email</span>
+                <span className={`text-[10px] font-bold uppercase tracking-widest text-accent/60`}>Email</span>
                 <span className="text-sm sm:text-base md:text-lg tracking-wide font-medium truncate">sosochukwunedum@gmail.com</span>
               </div>
               <ArrowUpRight className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
@@ -109,7 +109,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div className="flex flex-col flex-1 min-w-0">
-                <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>LinkedIn</span>
+                <span className={`text-[10px] font-bold uppercase tracking-widest text-accent/60`}>LinkedIn</span>
                 <span className="text-sm sm:text-base md:text-lg tracking-wide font-medium truncate">Chinedu John Ezenkwu</span>
               </div>
               <ArrowUpRight className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 <Phone strokeWidth={1.5} className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div className="flex flex-col flex-1 min-w-0">
-                <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>WhatsApp</span>
+                <span className={`text-[10px] font-bold uppercase tracking-widest text-accent/60`}>WhatsApp</span>
                 <span className="text-sm sm:text-base md:text-lg tracking-wide font-medium truncate">+234 916 615 9310</span>
               </div>
               <ArrowUpRight className={`w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/30 group-hover:text-black'}`} />

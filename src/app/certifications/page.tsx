@@ -18,13 +18,13 @@ export default function CertificationsPage() {
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col gap-2">
-            <span className={`text-xs font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>04 // AWARDS</span>
+            <span className={`text-xs font-bold uppercase tracking-[0.2em] text-accent/60`}>04 // AWARDS</span>
             <h2 className="text-3xl md:text-5xl font-normal tracking-tight uppercase">Certifications</h2>
           </div>
-          <div className={`h-[1px] w-24 mb-10 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`} />
+          <div className={`h-[1px] w-24 mb-10 bg-secondary/50`} />
           
           <div className="flex justify-center items-center py-20">
-             <p className={`text-lg uppercase tracking-widest ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>Content coming soon...</p>
+             <p className={`text-lg uppercase tracking-widest text-accent/60`}>Content coming soon...</p>
           </div>
         </motion.section>
 

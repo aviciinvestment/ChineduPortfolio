@@ -33,7 +33,7 @@ export default function Projects() {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal tracking-tighter uppercase drop-shadow-sm">
                 V12 CAR ENGINE
               </h1>
-              <div className={`flex flex-wrap justify-center md:justify-start gap-3 text-[10px] md:text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-neutral-400' : 'text-neutral-500'}`}>
+              <div className={`flex flex-wrap justify-center md:justify-start gap-3 text-[10px] md:text-xs font-bold uppercase tracking-wider text-accent/70`}>
                 <span className={`px-4 py-2 rounded-full border bg-opacity-20 backdrop-blur-md ${isDarkMode ? 'border-white/20 bg-white/5 text-white' : 'border-black/20 bg-black/5 text-black'}`}>SOLIDWORKS</span>
                 <span className={`px-4 py-2 rounded-full border bg-opacity-20 backdrop-blur-md ${isDarkMode ? 'border-white/20 bg-white/5 text-white' : 'border-black/20 bg-black/5 text-black'}`}>Parts & Assemblies</span>
                 <span className={`px-4 py-2 rounded-full border bg-opacity-20 backdrop-blur-md ${isDarkMode ? 'border-white/20 bg-white/5 text-white' : 'border-black/20 bg-black/5 text-black'}`}>Motion Studies</span>
@@ -59,7 +59,7 @@ export default function Projects() {
             </motion.div>
           </div>
 
-          <div className={`flex flex-col gap-8 md:gap-12 max-w-4xl mx-auto w-full text-[15px] md:text-lg leading-[1.8] font-light ${isDarkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
+          <div className={`flex flex-col gap-8 md:gap-12 max-w-4xl mx-auto w-full text-[15px] md:text-lg leading-[1.8] font-light text-accent/90`}>
             <div className="flex flex-col gap-6">
               <p className="first-letter:text-5xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
                 A detailed 3D CAD model of a V12 internal combustion engine developed to demonstrate advanced mechanical design and assembly modelling capabilities. The project involved modelling key engine components, including the engine block, cylinder heads, pistons, connecting rods, crankshaft, camshafts, valve-train components, intake and exhaust systems, and other supporting components.
@@ -72,7 +72,7 @@ export default function Projects() {
             <div className={`p-8 md:p-10 rounded-3xl border backdrop-blur-md ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}>
               <div className="flex items-center gap-4 mb-6">
                 <div className={`h-[1px] w-12 ${isDarkMode ? 'bg-white/30' : 'bg-black/30'}`} />
-                <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-white' : 'text-black'}`}>My Contributions</h4>
+                <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] text-accent`}>My Contributions</h4>
               </div>
               <p className="mb-6">
                 I was responsible for the 3D CAD development and assembly of the V12 engine model, translating the engine concept into detailed, accurately constrained components and assemblies. My contribution included:
@@ -85,11 +85,11 @@ export default function Projects() {
                   { title: "Attention to Details", desc: "Applying design intent, dimensional accuracy, clearances, and component interfaces throughout the modelling process." }
                 ].map((item, i) => (
                   <li key={i} className={`flex items-start gap-4 p-4 rounded-2xl border transition-colors ${isDarkMode ? 'border-white/10 hover:bg-white/5' : 'border-black/10 hover:bg-black/5'}`}>
-                    <div className={`mt-1 p-1.5 rounded-full ${isDarkMode ? 'bg-white/10' : 'bg-black/10'}`}>
-                      <div className={`w-1.5 h-1.5 rounded-full ${isDarkMode ? 'bg-white' : 'bg-black'}`} />
+                    <div className={`mt-1 p-1.5 rounded-full bg-secondary/20`}>
+                      <div className={`w-1.5 h-1.5 rounded-full bg-accent`} />
                     </div>
                     <div>
-                      <strong className={`block text-sm uppercase tracking-wider mb-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>{item.title}</strong>
+                      <strong className={`block text-sm uppercase tracking-wider mb-1 text-accent`}>{item.title}</strong>
                       <span className="text-sm md:text-base leading-relaxed opacity-90">{item.desc}</span>
                     </div>
                   </li>
@@ -100,7 +100,7 @@ export default function Projects() {
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4 mb-2">
                 <div className={`h-[1px] w-12 ${isDarkMode ? 'bg-white/30' : 'bg-black/30'}`} />
-                <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-white' : 'text-black'}`}>Result & Impact</h4>
+                <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] text-accent`}>Result & Impact</h4>
               </div>
               <p>
                 The project resulted in a detailed and fully assembled 3D CAD representation of a V12 engine, with its major mechanical components accurately modelled and integrated into a cohesive assembly. The completed model demonstrates my ability to manage complex mechanical assemblies, maintain component relationships and clearances, and apply precision throughout the design process.
@@ -111,7 +111,7 @@ export default function Projects() {
             </div>
 
             <div className={`p-8 rounded-3xl border border-dashed ${isDarkMode ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'}`}>
-              <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-6 ${isDarkMode ? 'text-white' : 'text-black'}`}>Tools & Reference</h4>
+              <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-6 text-accent`}>Tools & Reference</h4>
               <ul className="flex flex-col gap-3">
                 <li className="flex items-center gap-3">
                   <ArrowLeft className="w-4 h-4 rotate-180 opacity-50" />

@@ -33,9 +33,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   // We add a wrapper div that automatically applies the correct background theme.
-  // This simplifies pages significantly.
-  const darkThemeClasses = "bg-[#030303] text-white";
-  const lightThemeClasses = "bg-[#c0c2c9] bg-gradient-to-br from-[#d4d6dc] to-[#a3a5ac] text-[#222]";
+  // Using the new monochromatic cool blue palette for rebranding
+  const darkThemeClasses = "bg-primary text-accent";
+  const lightThemeClasses = "bg-primary text-accent";
   const currentTheme = isDarkMode ? darkThemeClasses : lightThemeClasses;
 
   return (
@@ -45,7 +45,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         <div 
           className="fixed inset-0 pointer-events-none z-0" 
           style={{ 
-            backgroundImage: `linear-gradient(to right, ${isDarkMode ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.03)'} 1px, transparent 1px), linear-gradient(to bottom, ${isDarkMode ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.03)'} 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, rgba(188,204,220,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(188,204,220,0.05) 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }} 
         />

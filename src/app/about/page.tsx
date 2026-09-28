@@ -19,11 +19,11 @@ export default function AboutPage() {
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col gap-2">
-            <span className={`text-xs font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>01 // OVERVIEW</span>
+            <span className={`text-xs font-bold uppercase tracking-[0.2em] text-accent/60`}>01 // OVERVIEW</span>
             <h2 className="text-3xl md:text-5xl font-normal tracking-tight uppercase">About This Profile</h2>
           </div>
-          <div className={`h-[1px] w-24 mb-4 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`} />
-          <p className={`text-lg md:text-xl leading-[1.8] max-w-3xl ${isDarkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
+          <div className={`h-[1px] w-24 mb-4 bg-secondary/50`} />
+          <p className={`text-lg md:text-xl leading-[1.8] max-w-3xl text-accent/90`}>
             This portfolio has been created to complement my résumé and provide an overview of selected projects that highlight my experience and technical capabilities. Each project showcases my practical application of engineering principles, problem-solving skills, attention to detail, and growth in CAD design and engineering. For further information or enquiries regarding any of the projects featured, please feel free to contact me.
           </p>
         </motion.section>
@@ -36,11 +36,11 @@ export default function AboutPage() {
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col gap-2">
-            <span className={`text-xs font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`}>02 // BACKGROUND</span>
+            <span className={`text-xs font-bold uppercase tracking-[0.2em] text-accent/60`}>02 // BACKGROUND</span>
             <h2 className="text-3xl md:text-5xl font-normal tracking-tight uppercase">About Me</h2>
           </div>
-          <div className={`h-[1px] w-24 mb-4 ${isDarkMode ? 'bg-white/20' : 'bg-black/20'}`} />
-          <div className={`text-lg md:text-xl leading-[1.8] max-w-4xl flex flex-col gap-8 ${isDarkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
+          <div className={`h-[1px] w-24 mb-4 bg-secondary/50`} />
+          <div className={`text-lg md:text-xl leading-[1.8] max-w-4xl flex flex-col gap-8 text-accent/90`}>
             <p>
               I am an Aerospace Engineering graduate of the Air Force Institute of Technology (AFIT), with a strong passion for aerospace and mechanical design. My interest in engineering design has driven a continuous commitment to learning and professional development, leading to certifications including the Certified SOLIDWORKS Associate (CSWA), Certified SOLIDWORKS Professional (CSWP) and training in CNC programming and SOLIDWORKS CAM.
             </p>
