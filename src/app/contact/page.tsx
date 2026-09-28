@@ -28,7 +28,10 @@ export default function ContactPage() {
                 src="/profile.png" 
                 alt="Chinedu John Ezenkwu" 
                 fill
-                className="object-contain object-bottom scale-[1.2] origin-bottom transition-transform duration-700 group-hover:scale-[1.3]"
+                sizes="(max-width: 768px) 160px, 224px"
+                quality={100}
+                unoptimized={true}
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
               />
             </div>
           </div>

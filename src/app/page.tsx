@@ -215,6 +215,7 @@ export default function Home() {
                   dragElastic={0.2}
                   whileDrag={{ scale: 1.1, zIndex: 50, cursor: "grabbing" }}
                   whileHover={{ scale: 1.05 }}
+                  onClick={() => window.location.href = `/skills#${skill.id}`}
                   className="relative flex flex-col items-center justify-center gap-2 md:gap-3 p-3 md:p-6 w-32 md:w-40 aspect-square rounded-2xl cursor-grab backdrop-blur-md border shadow-[0_0_20px_rgba(72,101,129,0.2)] transition-colors duration-300 bg-secondary/20 border-secondary/40 hover:bg-secondary/40 text-accent"
                   style={{ zIndex: index }}
                 >
