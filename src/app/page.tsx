@@ -59,7 +59,7 @@ export default function Home() {
     <div ref={containerRef} className="w-full relative">
       
       {/* Background Flowing Models */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-50 md:opacity-60 mix-blend-overlay">
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-10 md:opacity-20 mix-blend-overlay">
         {[1, 2, 3, 4].map((num, i) => (
           <motion.div
             key={`flow-${num}`}
@@ -158,19 +158,18 @@ export default function Home() {
             </div>
 
             {/* Bottom Row / Stack */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full mt-4">
+            <div className="flex flex-col items-center md:items-start gap-8 md:gap-10 w-full mt-4">
               
               {/* Name Block */}
               <motion.div variants={fadeUpVariants} className="flex flex-col items-center md:items-start gap-1">
                 <span className={`text-xl md:text-2xl font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-neutral-300' : 'text-neutral-600'}`}>
                   John Chinedu
                 </span>
-                <div className={`h-[2px] w-12 mt-2 ${isDarkMode ? 'bg-white/30' : 'bg-black/30'}`} />
               </motion.div>
 
               {/* Bio & Button Block */}
-              <motion.div variants={fadeUpVariants} className="flex flex-col items-center md:items-start gap-6 max-w-[450px] md:pt-4">
-                <p className={`text-[clamp(0.7rem,1.5vw,0.9rem)] uppercase tracking-[2px] leading-[1.8] border-l-0 md:border-l-2 pl-0 md:pl-6 text-center md:text-left ${isDarkMode ? 'text-neutral-400 border-white/20' : 'text-neutral-600 border-black/20'}`}>
+              <motion.div variants={fadeUpVariants} className="flex flex-col items-center md:items-start gap-8 max-w-[450px]">
+                <p className={`text-[clamp(0.7rem,1.5vw,0.9rem)] uppercase tracking-[2px] leading-[1.8] text-center md:text-left ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
                   CRAFTING HIGH-FIDELITY<br/>
                   MECHANISMS AND FUNCTIONAL<br/>
                   PROTOTYPES

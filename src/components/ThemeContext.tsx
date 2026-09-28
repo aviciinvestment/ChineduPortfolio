@@ -41,6 +41,14 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       <div className={`relative min-h-screen font-sans selection:bg-white/20 ${mounted ? 'transition-colors duration-700' : ''} ${currentTheme}`}>
+        {/* Faint Grid Lines */}
+        <div 
+          className="fixed inset-0 pointer-events-none z-0" 
+          style={{ 
+            backgroundImage: `linear-gradient(to right, ${isDarkMode ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.03)'} 1px, transparent 1px), linear-gradient(to bottom, ${isDarkMode ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.03)'} 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }} 
+        />
         {children}
       </div>
     </ThemeContext.Provider>
