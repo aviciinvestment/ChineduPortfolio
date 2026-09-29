@@ -93,11 +93,22 @@ export default function Slideshow({
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.35 }}
-            className="absolute inset-0"
+            drag={hasControls ? "x" : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = offset.x * velocity.x;
+              if (swipe < -1000) step(1);
+              else if (swipe > 1000) step(-1);
+              else if (offset.x < -50) step(1);
+              else if (offset.x > 50) step(-1);
+            }}
+            onClick={() => hasControls && step(1)}
+            className={`absolute inset-0 ${hasControls ? "cursor-grab active:cursor-grabbing" : ""}`}
           >
             {current.type === "image" ? (
               <ImageSlide

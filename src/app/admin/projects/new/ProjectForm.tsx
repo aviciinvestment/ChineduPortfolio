@@ -17,6 +17,9 @@ export type ProjectFormInput = {
   tags: string[];
   link: string | null;
   category: string | null;
+  contributions: string | null;
+  resultImpact: string | null;
+  tools: string | null;
   media: MediaItem[];
 };
 
@@ -78,16 +81,52 @@ export default function ProjectForm({ project }: { project?: ProjectFormInput })
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className={labelClass}>Description</label>
+        <label className={labelClass}>Description / Overview</label>
         <textarea
           required
           name="description"
-          rows={10}
+          rows={5}
           defaultValue={project?.description}
           className={inputClass}
-          placeholder="Detailed description of the engineering project..."
+          placeholder="Main description of the project..."
         />
-        <p className="text-xs text-muted">To create separate paragraphs on the public page, press Enter twice (leave a blank line between paragraphs).</p>
+        <p className="text-xs text-muted">Use double line breaks to create separate paragraphs.</p>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className={labelClass}>My Contributions (Optional)</label>
+        <textarea
+          name="contributions"
+          rows={5}
+          defaultValue={project?.contributions ?? ""}
+          className={inputClass}
+          placeholder="Details about your specific contributions..."
+        />
+        <p className="text-xs text-muted">Use double line breaks to create separate paragraphs.</p>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className={labelClass}>Result & Impact (Optional)</label>
+        <textarea
+          name="resultImpact"
+          rows={5}
+          defaultValue={project?.resultImpact ?? ""}
+          className={inputClass}
+          placeholder="Impact and results of the project..."
+        />
+        <p className="text-xs text-muted">Use double line breaks to create separate paragraphs.</p>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className={labelClass}>Tools & Reference (Optional)</label>
+        <textarea
+          name="tools"
+          rows={3}
+          defaultValue={project?.tools ?? ""}
+          className={inputClass}
+          placeholder="e.g. SOLIDWORKS (Parts, Assemblies, Motion Studies)"
+        />
+        <p className="text-xs text-muted">Use double line breaks to separate tools.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

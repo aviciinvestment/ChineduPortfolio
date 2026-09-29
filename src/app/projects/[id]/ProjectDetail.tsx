@@ -10,6 +10,9 @@ export type ProjectView = {
   title: string;
   description: string;
   category: string | null;
+  contributions: string | null;
+  resultImpact: string | null;
+  tools: string | null;
   tags: string[];
   link: string | null;
   imageUrl: string | null;
@@ -76,9 +79,53 @@ export default function ProjectDetail({
         </motion.div>
 
         <div className="flex flex-col gap-6 max-w-4xl w-full text-[15px] md:text-lg leading-[1.8] font-light text-accent/90">
-          {paragraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          <div className="flex flex-col gap-6">
+            {paragraphs.map((paragraph, index) => (
+              <p key={index} className={index === 0 ? "first-letter:text-5xl first-letter:font-bold first-letter:mr-1 first-letter:float-left" : ""}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          {project.contributions && (
+            <div className={`p-8 md:p-10 rounded-3xl border backdrop-blur-md bg-secondary/5 border-line`}>
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`h-[1px] w-12 bg-line`} />
+                <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] text-accent`}>My Contributions</h4>
+              </div>
+              <div className="flex flex-col gap-4">
+                {project.contributions.split(/\n{2,}/).filter(Boolean).map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {project.resultImpact && (
+            <div className="flex flex-col gap-6 mt-4">
+              <div className="flex items-center gap-4 mb-2">
+                <div className={`h-[1px] w-12 bg-line`} />
+                <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] text-accent`}>Result & Impact</h4>
+              </div>
+              {project.resultImpact.split(/\n{2,}/).filter(Boolean).map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
+          )}
+
+          {project.tools && (
+            <div className={`p-8 rounded-3xl border border-dashed bg-secondary/5 border-line mt-4`}>
+              <h4 className={`text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-6 text-accent`}>Tools & Reference</h4>
+              <ul className="flex flex-col gap-3">
+                {project.tools.split(/\n{2,}/).filter(Boolean).map((tool, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <ArrowLeft className="w-4 h-4 rotate-180 opacity-50" />
+                    <span>{tool}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {project.link && (

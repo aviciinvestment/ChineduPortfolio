@@ -54,6 +54,9 @@ model Project {
   tags        String[]
   link        String?
   category    String?  
+  contributions String? @db.Text
+  resultImpact  String? @db.Text
+  tools         String? @db.Text
   order       Int      @default(0)
   media       ProjectMedia[]
   createdAt   DateTime @default(now())
