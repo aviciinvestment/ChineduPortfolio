@@ -14,16 +14,23 @@ async function getProject(id: string) {
 
   if (!project) notFound();
 
-  const slides = project.media.map((item) => ({
-    type: item.type === "video" ? ("video" as const) : ("image" as const),
-    url: item.url,
-  }));
+  const slides: { type: "video" | "image"; url: string }[] = [];
+  
+  if (project.imageUrl) {
+    slides.push({ type: "image", url: project.imageUrl });
+  }
+
+  for (const item of project.media) {
+    if (!slides.some((s) => s.url === item.url)) {
+      slides.push({
+        type: item.type === "video" ? "video" : "image",
+        url: item.url,
+      });
+    }
+  }
 
   if (project.videoUrl && !slides.some((slide) => slide.url === project.videoUrl)) {
     slides.push({ type: "video", url: project.videoUrl });
-  }
-  if (slides.length === 0 && project.imageUrl) {
-    slides.push({ type: "image", url: project.imageUrl });
   }
 
   const view: ProjectView = {

@@ -82,11 +82,12 @@ export default function ProjectForm({ project }: { project?: ProjectFormInput })
         <textarea
           required
           name="description"
-          rows={5}
+          rows={10}
           defaultValue={project?.description}
           className={inputClass}
           placeholder="Detailed description of the engineering project..."
         />
+        <p className="text-xs text-muted">To create separate paragraphs on the public page, press Enter twice (leave a blank line between paragraphs).</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
