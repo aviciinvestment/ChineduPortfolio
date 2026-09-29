@@ -34,10 +34,10 @@ function embedUrl(url: string): string | null {
 
 function ImageSlide({ url, alt, sizes }: { url: string; alt: string; sizes: string }) {
   if (isHostedLocally(url)) {
-    return <Image src={url} alt={alt} fill sizes={sizes} className="object-contain" />;
+    return <Image src={url} alt={alt} fill sizes={sizes} className="object-contain pointer-events-none" draggable={false} />;
   }
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={url} alt={alt} className="absolute inset-0 w-full h-full object-contain" />;
+  return <img src={url} alt={alt} className="absolute inset-0 w-full h-full object-contain pointer-events-none" draggable={false} />;
 }
 
 function Thumb({ slide, alt }: { slide: Slide; alt: string }) {
