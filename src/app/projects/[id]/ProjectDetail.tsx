@@ -53,7 +53,7 @@ export default function ProjectDetail({
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/60">
             {`${project.category ?? "Portfolio"} // Featured Project`}
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal tracking-tighter uppercase drop-shadow-sm break-words text-balance">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal tracking-tighter uppercase break-words text-balance">
             {project.title}
           </h1>
           {project.tags.length > 0 && (

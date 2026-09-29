@@ -60,7 +60,17 @@ export default function ProjectForm({ project }: { project?: ProjectFormInput })
       formData.append("mediaUrl", item.url);
     }
 
-    await (project ? updateProject : createProject)(formData);
+    try {
+      await (project ? updateProject : createProject)(formData);
+    } catch (error: any) {
+      // Next.js redirect() throws an error that should not be caught as a failure
+      if (error?.message === "NEXT_REDIRECT") {
+        throw error;
+      }
+      console.error("Failed to save project:", error);
+      alert("Failed to save project. Check the console for details.");
+      setIsSubmitting(false);
+    }
   };
 
   const mediaButtonClass =

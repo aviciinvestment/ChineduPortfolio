@@ -33,7 +33,7 @@ export default function ProjectDetailClient({
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/60">
           {`${String(index + 1).padStart(2, '0')} // ${project.category ?? "Portfolio"}`}
         </span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tighter uppercase drop-shadow-sm break-words text-balance">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tighter uppercase break-words text-balance">
           {project.title}
         </h2>
         {project.tags.length > 0 && (
