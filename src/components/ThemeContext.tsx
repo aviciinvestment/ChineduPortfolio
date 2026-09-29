@@ -39,7 +39,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         <div 
           className="fixed inset-0 pointer-events-none z-0 transition-colors duration-700" 
           style={{ 
-            backgroundImage: `linear-gradient(to right, ${isDarkMode ? 'rgba(234,88,12,0.08)' : 'rgba(249,115,22,0.2)'} 1px, transparent 1px), linear-gradient(to bottom, ${isDarkMode ? 'rgba(234,88,12,0.08)' : 'rgba(249,115,22,0.2)'} 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, ${isDarkMode ? 'rgba(234,88,12,0.08)' : 'rgba(249,115,22,0.08)'} 1px, transparent 1px), linear-gradient(to bottom, ${isDarkMode ? 'rgba(234,88,12,0.08)' : 'rgba(249,115,22,0.08)'} 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }} 
         />
