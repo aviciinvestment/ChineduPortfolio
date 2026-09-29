@@ -34,7 +34,10 @@ export default async function EditProjectPage({
           videoUrl: project.videoUrl,
           tags: project.tags,
           link: project.link,
-          category: project.category,
+          category: (project as any).category,
+          contributions: (project as any).contributions,
+          resultImpact: (project as any).resultImpact,
+          tools: (project as any).tools,
           media: project.media.map((item) => ({ type: item.type as "image" | "video", url: item.url })),
         }}
       />
