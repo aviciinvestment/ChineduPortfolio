@@ -151,7 +151,7 @@ export default function HomeView({ projects }: { projects: HomeProject[] }) {
                     {char === ' ' ? '\u00A0' : char}
                   </motion.span>
                 ))}<br/>
-                <span className="font-black not-italic text-white">
+                <span className="font-black not-italic text-black dark:text-white">
                   {Array.from("DESIGN").map((char, i) => (
                     <motion.span key={`des-${i}`} custom={i + 20} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                       {char === ' ' ? '\u00A0' : char}
