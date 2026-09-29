@@ -39,8 +39,8 @@ export default function Navbar() {
   return (
     <>
       {/* Drafting Guides - Persistent across app */}
-      <div className="fixed inset-y-0 left-3 md:left-5 lg:left-10 w-[1px] z-[100] pointer-events-none mix-blend-difference bg-white/30" />
-      <div className="fixed inset-y-0 right-3 md:right-5 lg:right-10 w-[1px] z-[100] pointer-events-none mix-blend-difference bg-white/30" />
+      <div className="fixed inset-y-0 left-3 md:left-5 lg:left-10 w-[1px] z-[100] pointer-events-none bg-accent/20" />
+      <div className="fixed inset-y-0 right-3 md:right-5 lg:right-10 w-[1px] z-[100] pointer-events-none bg-accent/20" />
 
       {/* Theme Toggle */}
       <button
@@ -62,7 +62,7 @@ export default function Navbar() {
       </button>
       {/* Desktop & Mobile Top Navbar */}
       <nav className="relative z-[90] flex justify-between items-start md:items-center px-6 md:px-10 lg:px-20 py-6 md:py-10">
-        <div className="absolute bottom-0 left-3 md:left-5 lg:left-10 right-3 md:right-5 lg:right-10 h-[1px] mix-blend-difference bg-white/30 pointer-events-none" />
+        <div className="absolute bottom-0 left-3 md:left-5 lg:left-10 right-3 md:right-5 lg:right-10 h-[1px] bg-accent/20 pointer-events-none" />
         
         <div className="flex flex-col gap-2 font-bold text-sm tracking-widest uppercase cursor-pointer group text-accent">
           <Link href="/">

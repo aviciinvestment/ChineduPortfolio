@@ -140,7 +140,7 @@ export default function HomeView({ projects }: { projects: HomeProject[] }) {
 
             {/* Main Headline */}
             <div className="flex flex-col items-center lg:items-start w-full z-10">
-              <h1 className="text-[clamp(2.75rem,8.5vw,7rem)] font-light leading-[0.95] tracking-tighter w-full text-accent whitespace-nowrap drop-shadow-md">
+              <h1 className="text-[clamp(2.75rem,8.5vw,7rem)] font-light leading-[0.95] tracking-tighter w-full text-accent whitespace-nowrap">
                 {Array.from("DYNAMIC 3D").map((char, i) => (
                   <motion.span key={`d-${i}`} custom={i} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                     {char === ' ' ? '\u00A0' : char}
@@ -151,7 +151,7 @@ export default function HomeView({ projects }: { projects: HomeProject[] }) {
                     {char === ' ' ? '\u00A0' : char}
                   </motion.span>
                 ))}<br/>
-                <span className="font-black not-italic text-transparent bg-clip-text bg-gradient-to-r from-accent via-warm-soft to-secondary drop-shadow-[0_0_20px_rgba(234,88,12,0.55)]">
+                <span className="font-black not-italic text-transparent bg-clip-text bg-gradient-to-r from-accent via-warm-soft to-secondary">
                   {Array.from("DESIGN").map((char, i) => (
                     <motion.span key={`des-${i}`} custom={i + 20} variants={spellVariants} initial="hidden" animate="visible" className="inline-block">
                       {char === ' ' ? '\u00A0' : char}
