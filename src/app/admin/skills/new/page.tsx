@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import SkillForm from "../SkillForm";
 import { BackLink, PageHeader } from "../../ui";
 

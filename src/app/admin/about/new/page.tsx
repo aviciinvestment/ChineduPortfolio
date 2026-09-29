@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import SectionForm from "../SectionForm";
 import { BackLink, PageHeader } from "../../ui";
 

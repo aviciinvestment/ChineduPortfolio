@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import CertificationForm from "../CertificationForm";
 import { BackLink, PageHeader } from "../../ui";
 
