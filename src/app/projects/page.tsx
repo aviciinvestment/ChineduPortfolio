@@ -12,7 +12,7 @@ export default function Projects() {
   return (
     <div className="w-full">
       {/* Main Content */}
-      <main className="flex-1 relative z-10 px-6 md:px-10 lg:px-20 pt-8 md:pt-12 pb-24 max-w-6xl mx-auto w-full">
+      <main className="flex-1 relative z-10 px-6 md:px-10 lg:px-20 pt-8 md:pt-12 pb-32 max-w-6xl mx-auto w-full">
         
         <div className="flex justify-between items-center mb-10 md:mb-16">
           <Link 
@@ -30,7 +30,7 @@ export default function Projects() {
           
           <div className="flex flex-col-reverse md:flex-col gap-10">
             <div className="flex flex-col gap-6 w-full text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal tracking-tighter uppercase drop-shadow-sm">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal tracking-tighter uppercase drop-shadow-sm break-words text-balance">
                 V12 CAR ENGINE
               </h1>
               <div className={`flex flex-wrap justify-center md:justify-start gap-3 text-[10px] md:text-xs font-bold uppercase tracking-wider text-accent/70`}>
@@ -86,7 +86,7 @@ export default function Projects() {
                 ].map((item, i) => (
                   <li key={i} className={`flex items-start gap-4 p-4 rounded-2xl border transition-colors ${isDarkMode ? 'border-white/10 hover:bg-white/5' : 'border-black/10 hover:bg-black/5'}`}>
                     <div className={`mt-1 p-1.5 rounded-full bg-secondary/20`}>
-                      <div className={`w-1.5 h-1.5 rounded-full bg-accent`} />
+                      <div className={`w-1.5 h-1.5 rounded-full bg-warm`} />
                     </div>
                     <div>
                       <strong className={`block text-sm uppercase tracking-wider mb-1 text-accent`}>{item.title}</strong>

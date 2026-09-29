@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 
 import { ThemeProvider } from "@/components/ThemeContext";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1 w-full relative z-10 flex flex-col">
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

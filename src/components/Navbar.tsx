@@ -33,6 +33,9 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
+  // Admin routes render their own navigation chrome
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <>
       {/* Drafting Guides - Persistent across app */}
@@ -42,7 +45,7 @@ export default function Navbar() {
       {/* Theme Toggle */}
       <button
         onClick={toggleTheme}
-        className="fixed bottom-6 right-6 md:right-10 lg:right-10 z-[100] p-4 md:p-5 rounded-full border border-secondary/50 backdrop-blur-sm bg-primary/80 text-accent hover:bg-secondary/20 transition-all duration-300 shadow-lg"
+        className="fixed bottom-6 right-6 md:right-10 lg:right-10 z-[100] p-4 md:p-5 rounded-full border border-warm/40 backdrop-blur-sm bg-primary/80 text-accent hover:bg-warm/15 hover:text-warm transition-all duration-300 shadow-lg"
         aria-label="Toggle Theme"
       >
         <AnimatePresence mode="wait">
@@ -74,7 +77,8 @@ export default function Navbar() {
               <li key={item.name}>
                 <Link 
                   href={item.path} 
-                  className={`transition-colors hover:text-accent ${isActive ? 'text-accent' : ''}`}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative inline-block transition-colors hover:text-accent after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:rounded-full after:bg-warm after:transition-all after:duration-300 ${isActive ? 'text-accent after:w-full' : 'after:w-0 hover:after:w-full'}`}
                 >
                   {item.name}
                 </Link>
@@ -87,7 +91,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden flex flex-col justify-center gap-[7px] p-2 -mr-2 cursor-pointer z-[120]"
+          className="md:hidden flex flex-col justify-center gap-[7px] p-3 -mr-3 min-h-11 cursor-pointer z-[120]"
         >
           <span className={`block h-[2px] w-8 transition-all duration-300 bg-accent ${isMenuOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
           <span className={`block h-[2px] w-8 transition-all duration-300 bg-accent ${isMenuOpen ? 'opacity-0' : ''}`} />
@@ -114,7 +118,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="md:hidden fixed top-0 right-0 h-full w-[80vw] max-w-[300px] z-[110] shadow-2xl flex flex-col pt-24 px-8 border-l bg-primary border-secondary/50"
+              className="md:hidden fixed top-0 right-0 h-full w-[80vw] max-w-[300px] z-[110] shadow-2xl flex flex-col pt-24 px-8 border-l bg-primary border-warm/40"
             >
               <ul className="flex flex-col gap-8 text-sm font-semibold tracking-widest uppercase">
                 {navItems.map((item, i) => {
@@ -129,7 +133,7 @@ export default function Navbar() {
                       <Link 
                         href={item.path} 
                         onClick={() => setIsMenuOpen(false)}
-                        className={`block py-2 border-b border-secondary/30 text-accent/60 hover:text-accent ${isActive ? 'text-accent border-accent/50' : ''}`}
+                        className={`block py-3 border-b border-secondary/30 text-accent/60 hover:text-accent transition-colors ${isActive ? 'text-accent border-warm/60' : ''}`}
                       >
                         {item.name}
                       </Link>
