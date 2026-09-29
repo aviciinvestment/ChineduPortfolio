@@ -168,7 +168,7 @@ export default function HomeView({ projects }: { projects: HomeProject[] }) {
                   MECHANISMS AND FUNCTIONAL<br/>
                   PROTOTYPES
                 </p>
-                <Link href="/projects" className="group relative flex items-center justify-center gap-3 px-8 sm:px-10 py-5 border-2 border-accent/40 rounded-full text-[clamp(0.65rem,1.5vw,0.9rem)] font-bold uppercase tracking-[2px] overflow-hidden transition-all duration-500 cursor-pointer backdrop-blur-md text-accent hover:text-warm-fg hover:border-warm bg-secondary/20 hover:shadow-[0_0_40px_rgba(234,88,12,0.45)] hover:scale-105 active:scale-95">
+                <Link href="/#projects" className="group relative flex items-center justify-center gap-3 px-8 sm:px-10 py-5 border-2 border-accent/40 rounded-full text-[clamp(0.65rem,1.5vw,0.9rem)] font-bold uppercase tracking-[2px] overflow-hidden transition-all duration-500 cursor-pointer backdrop-blur-md text-accent hover:text-warm-fg hover:border-warm bg-secondary/20 hover:shadow-[0_0_40px_rgba(234,88,12,0.45)] hover:scale-105 active:scale-95">
                   <span className="absolute inset-0 w-full h-full origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-x-100 -z-10 bg-warm" />
                   Explore Designs
                 </Link>
