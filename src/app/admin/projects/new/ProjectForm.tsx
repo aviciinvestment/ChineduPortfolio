@@ -61,14 +61,17 @@ export default function ProjectForm({ project }: { project?: ProjectFormInput })
     }
 
     try {
-      await (project ? updateProject : createProject)(formData);
+      const result = await (project ? updateProject : createProject)(formData);
+      if (result && "error" in result) {
+        throw new Error(result.error as string);
+      }
     } catch (error: any) {
       // Next.js redirect() throws an error that should not be caught as a failure
       if (error?.message === "NEXT_REDIRECT") {
         throw error;
       }
       console.error("Failed to save project:", error);
-      alert("Failed to save project. Check the console for details.");
+      alert("Failed to save project: " + error.message);
       setIsSubmitting(false);
     }
   };

@@ -74,29 +74,39 @@ function mediaRows(media: MediaInput[]) {
 }
 
 export async function createProject(formData: FormData) {
-  const { data, media } = projectFrom(formData);
+  try {
+    const { data, media } = projectFrom(formData);
 
-  await prisma.project.create({
-    data: { ...data, media: { create: mediaRows(media) } },
-  });
+    await prisma.project.create({
+      data: { ...data, media: { create: mediaRows(media) } },
+    });
 
-  revalidate(PROJECT_PAGES);
+    revalidate(PROJECT_PAGES);
+  } catch (error: any) {
+    console.error("SERVER ACTION ERROR:", error);
+    return { error: error.message };
+  }
   redirect("/admin/projects");
 }
 
 export async function updateProject(formData: FormData) {
-  const id = text(formData.get("id"));
-  const { data, media } = projectFrom(formData);
+  try {
+    const id = text(formData.get("id"));
+    const { data, media } = projectFrom(formData);
 
-  await prisma.$transaction([
-    prisma.projectMedia.deleteMany({ where: { projectId: id } }),
-    prisma.project.update({
-      where: { id },
-      data: { ...data, media: { create: mediaRows(media) } },
-    }),
-  ]);
+    await prisma.$transaction([
+      prisma.projectMedia.deleteMany({ where: { projectId: id } }),
+      prisma.project.update({
+        where: { id },
+        data: { ...data, media: { create: mediaRows(media) } },
+      }),
+    ]);
 
-  revalidate(PROJECT_PAGES);
+    revalidate(PROJECT_PAGES);
+  } catch (error: any) {
+    console.error("SERVER ACTION ERROR:", error);
+    return { error: error.message };
+  }
   redirect("/admin/projects");
 }
 
