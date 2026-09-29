@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { useTheme } from "@/components/ThemeContext";
+import Slideshow from "./[id]/Slideshow";
 
 export default function Projects() {
   const { isDarkMode } = useTheme();
@@ -40,22 +41,17 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Main Hero Image */}
+            {/* Main Hero Image via Slideshow */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className={`w-full relative aspect-[4/3] md:aspect-[21/9] rounded-[2rem] overflow-hidden border p-2 md:p-4 shadow-2xl backdrop-blur-sm group ${isDarkMode ? 'border-white/10 bg-white/5' : 'border-black/10 bg-black/5'}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
             >
-              <div className={`relative w-full h-full rounded-[1.5rem] overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-white/90 group-hover:bg-white' : 'bg-black/10 group-hover:bg-black/5'}`}>
-                <Image 
-                  src="/v12-engine-new.jpg" 
-                  alt="V12 Car Engine CAD Model" 
-                  fill
-                  className="object-cover md:object-contain drop-shadow-2xl mix-blend-multiply scale-[1.02] hover:scale-105 transition-transform duration-1000 ease-out"
-                  priority
-                />
-              </div>
+              <Slideshow 
+                slides={[{ type: "image", url: "/v12-engine-new.jpg" }]} 
+                title="V12 CAR ENGINE" 
+                cover="/v12-engine-new.jpg" 
+              />
             </motion.div>
           </div>
 
