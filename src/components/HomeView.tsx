@@ -129,7 +129,7 @@ export default function HomeView({ projects }: { projects: HomeProject[] }) {
             initial="hidden"
             animate="visible"
             variants={staggerVariants}
-            className="relative z-20 w-full lg:w-auto flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 mt-4 md:mt-0"
+            className="relative z-20 w-full lg:w-auto lg:flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 mt-4 md:mt-0"
           >
             {/* Name Block */}
             <motion.div variants={fadeUpVariants} className="flex flex-col items-center lg:items-start gap-1 w-full">
@@ -229,6 +229,13 @@ export default function HomeView({ projects }: { projects: HomeProject[] }) {
                   whileDrag={{ scale: 1.1, zIndex: 50, cursor: "grabbing" }}
                   whileHover={{ scale: 1.05 }}
                   onClick={() => router.push(`/skills#${skill.id}`)}
+                  onDragEnd={(e, info) => {
+                    const distance = Math.sqrt(info.offset.x ** 2 + info.offset.y ** 2);
+                    const velocity = Math.sqrt(info.velocity.x ** 2 + info.velocity.y ** 2);
+                    if (distance > 20 || velocity > 50) {
+                      router.push(`/skills#${skill.id}`);
+                    }
+                  }}
                   className="relative flex flex-col items-center justify-center gap-2 md:gap-3 p-3 md:p-6 w-28 sm:w-32 md:w-40 aspect-square rounded-2xl cursor-grab backdrop-blur-md border shadow-[0_0_20px_rgba(233,151,91,0.25)] transition-colors duration-300 bg-secondary/20 border-secondary/40 hover:bg-warm/25 hover:border-warm/60 text-accent"
                   style={{ zIndex: index }}
                 >
